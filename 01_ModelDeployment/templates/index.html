@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificador de Animais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Classificador de Animais</h1>
+        <input type="file" id="imageInput" accept="image/*">
+        <button id="predictBtn">Prever</button>
+        <div id="previewContainer">
+            <img id="preview" src="" alt="Preview da Imagem">
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const preview = document.getElementById('preview');
+        const result = document.getElementById('result');
+        const predictBtn = document.getElementById('predictBtn');
+
+        imageInput.addEventListener('change', () => {
+            const file = imageInput.files[0];
+            if(file){
+                const reader = new FileReader();
+                reader.onload = e => preview.src = e.target.result;
+                reader.readAsDataURL(file);
+            }
+        });
+
+        predictBtn.addEventListener('click', async () => {
+            const file = imageInput.files[0];
+            if(!file){
+                alert("Selecione uma imagem primeiro!");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            result.textContent = "Carregando...";
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if(response.ok){
+                    result.textContent = `Classe prevista: ${data.class}`;
+                } else {
+                    result.textContent = `Erro: ${data.error}`;
+                }
+            } catch(err) {
+                result.textContent = `Erro de conexão: ${err}`;
+                console.error(err);
+            }
+        });   
+</script>
+</body>
+</html>
