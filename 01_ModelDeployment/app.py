@@ -17,6 +17,7 @@ cnn.eval()
 
 # transformações (mesmas do treino)
 transform = transforms.Compose([
+    transforms.Resize((32, 32)),  # CIFAR-10 tem 32x32
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
