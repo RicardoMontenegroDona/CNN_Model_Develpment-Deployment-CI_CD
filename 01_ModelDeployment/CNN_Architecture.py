@@ -1,9 +1,9 @@
 import torch.nn as nn
 import torch.nn.functional as F
 
-class AnimalCNN(nn.Module):
+class CNN(nn.Module):
     def __init__(self):
-        super(AnimalCNN, self).__init__()
+        super(CNN, self).__init__()
         
         # Bloco 1
         self.conv1 = nn.Conv2d(3, 64, 3, padding=1)

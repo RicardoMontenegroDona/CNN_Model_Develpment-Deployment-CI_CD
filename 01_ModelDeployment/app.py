@@ -9,9 +9,9 @@ import os
 app = Flask(__name__)
 
 # importa e carrega o modelo
-from CNN_Architecture import AnimalCNN  # substitua pelo seu arquivo com a classe CNN
+from CNN_Architecture import CNN  # substitua pelo seu arquivo com a classe CNN
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-cnn = AnimalCNN()
+cnn = CNN()
 cnn.load_state_dict(torch.load(os.path.dirname(os.getcwd())+"\\00_ModelDevelopment\\CNN_Model.pth", map_location=torch.device(device)))
 cnn.eval()
 
