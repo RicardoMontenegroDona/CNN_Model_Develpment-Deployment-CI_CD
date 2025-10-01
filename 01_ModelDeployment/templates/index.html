@@ -8,12 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Classificador de Imagens</h1>
-        <input type="file" id="imageInput" accept="image/*">
-        <button id="predictBtn">Prever</button>
+        <h1>🔎 Classificador de Imagens</h1>
+
+        <label for="imageInput" class="custom-file-upload">
+            📂 Escolher Imagem
+        </label>
+        <input type="file" id="imageInput" accept="image/*" hidden>
+
         <div id="previewContainer">
             <img id="preview" src="" alt="Preview da Imagem">
         </div>
+
+        <button id="predictBtn">🚀 Prever</button>
+
         <div id="result"></div>
     </div>
 
@@ -42,7 +49,7 @@
             const formData = new FormData();
             formData.append('file', file);
 
-            result.textContent = "Carregando...";
+            result.textContent = "⏳ Carregando...";
 
             try {
                 const response = await fetch('/predict', {
@@ -53,15 +60,16 @@
                 const data = await response.json();
 
                 if(response.ok){
-                    result.textContent = `Classe prevista: ${data.class}`;
+                    result.textContent = `✅ Classe prevista: ${data.class}`;
+                    result.classList.add("show");
                 } else {
-                    result.textContent = `Erro: ${data.error}`;
+                    result.textContent = `⚠️ Erro: ${data.error}`;
                 }
             } catch(err) {
-                result.textContent = `Erro de conexão: ${err}`;
+                result.textContent = `❌ Erro de conexão: ${err}`;
                 console.error(err);
             }
         });   
-</script>
+    </script>
 </body>
 </html>
