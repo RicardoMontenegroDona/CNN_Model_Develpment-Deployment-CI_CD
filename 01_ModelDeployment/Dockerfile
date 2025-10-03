@@ -1,5 +1,5 @@
 # 1. Usar uma imagem base leve do Python
-FROM python:3.13-slim
+FROM pytorch/pytorch:2.8.0-cuda12.9-cudnn9-runtime
 
 # 2. Definir diretório de trabalho
 WORKDIR /app
