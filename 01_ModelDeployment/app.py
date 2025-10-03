@@ -12,7 +12,8 @@ app = Flask(__name__)
 from CNN_Architecture import CNN  # substitua pelo seu arquivo com a classe CNN
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 cnn = CNN()
-cnn.load_state_dict(torch.load(os.path.dirname(os.getcwd())+"\\00_ModelDevelopment\\CNN_Model.pth", map_location=torch.device(device)))
+model_path = os.path.join(os.getcwd(), "model", "CNN_Model.pth")
+cnn.load_state_dict(torch.load(model_path, map_location=torch.device(device)))
 cnn.eval()
 
 # transformações (mesmas do treino)
@@ -48,4 +49,4 @@ def predict():
     return jsonify({'class': classes[predicted.item()]})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
