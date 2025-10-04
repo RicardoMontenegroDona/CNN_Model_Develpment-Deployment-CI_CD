@@ -24,7 +24,7 @@ It covers all stages — from data collection and preprocessing to model trainin
 
 ## 🧩 Project Structure
 
-project/
+```project/
 │
 ├── 00_ModelDevelpment/ # Create and Save the model
 │ ├── 00_TrainingData/ # Dataset for training and testing
@@ -42,6 +42,7 @@ project/
 │ ├── Workflow.yml
 
 └── README.md
+```
 
 
 ## ⚙️ Requirements
