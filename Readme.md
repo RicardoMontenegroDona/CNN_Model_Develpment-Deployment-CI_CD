@@ -32,9 +32,9 @@ It covers all stages — from data collection and preprocessing to model trainin
 
 ├── 01_ModelDeployment/ # Create the Flask API and Dockerfile
 │ ├── .dockerignore
-│ ├── app.py
-│ ├── CNN_architecture.py
-│ ├── Dockerfile
+│ ├── app.py # Flask API
+│ ├── CNN_architecture.py # CNN architecture
+│ ├── Dockerfile 
 │ └── requirements.txt
 
 ├── 02_Workflow/ # Automated process to deploy the app when app.py or CNN_architecture are uploaded.
