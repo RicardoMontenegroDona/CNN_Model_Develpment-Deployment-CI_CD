@@ -25,7 +25,6 @@ It covers all stages — from data collection and preprocessing to model trainin
 ## 🧩 Project Structure
 
 ```project/
-│
 ├── 00_ModelDevelpment/ # Create and Save the model
 │ ├── 00_TrainingData/ # Dataset for training and testing
 │ ├── 01_TestingDataFromInternet/ # Images to test if the model is working after training
