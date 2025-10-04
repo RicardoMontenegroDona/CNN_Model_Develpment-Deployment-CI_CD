@@ -1,4 +1,4 @@
-# Project: CNN - Image Classification
+# CNN - Image Classification
 
 ## 📝 Overview
 This project implements a complete end-to-end Deep Learning pipeline using a Convolutional Neural Network (CNN) for image classification.  
@@ -21,4 +21,48 @@ It covers all stages — from data collection and preprocessing to model trainin
     - Uploaded to EC2
 6. **Workflow** - when app.py or CNN_architecture.py changes deployment is performed again. 
 
+
 ## 🧩 Project Structure
+
+project/
+│
+├── 00_ModelDevelpment/ # Create and Save the model
+│ ├── 00_TrainingData/ # Dataset for training and testing
+│ ├── 01_TestingDataFromInternet/ # Images to test if the model is working after training
+│ ├── Model_Development.ipynb # Entire model creation process
+
+├── 01_ModelDeployment/ # Create the Flask API and Dockerfile
+│ ├── .dockerignore
+│ ├── app.py
+│ ├── CNN_architecture.py
+│ ├── Dockerfile
+│ └── requirements.txt
+
+├── 02_Workflow/ # Automated process to deploy the app when app.py or CNN_architecture are uploaded.
+│ ├── Workflow.yml
+
+└── README.md
+
+
+## ⚙️ Requirements
+- Python 3.13
+- Main libraries:
+  - PyTorch
+  - Flask
+  - Numpy
+  - Torch
+  - TorchVision
+
+
+## 📊 Results
+- **Final Accuracy:** 90.96%
+- **Loss:** 0.1821
+- **Training Time:** +-15 minutes with NVIDIA RTX 4070 SUPER  
+
+- **Note**: The model’s performance can be improved. However, since this project serves as a proof of concept, it has not been fully optimized 
+
+
+## 👤 Author
+- **Name:** Ricardo Montenegro Dona
+- **LinkedIn:** https://www.linkedin.com/in/ricardomontenegrodona/
+
