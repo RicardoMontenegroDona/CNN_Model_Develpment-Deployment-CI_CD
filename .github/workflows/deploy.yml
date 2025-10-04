@@ -9,6 +9,7 @@ on:
       - '01_ModelDeployment/templates/index.html'    
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
