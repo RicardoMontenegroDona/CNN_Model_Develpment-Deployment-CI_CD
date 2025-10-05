@@ -10,7 +10,7 @@ It covers all stages — from data collection and preprocessing to model trainin
 2. **Preprocessing** – Flipping, Cropping, Shifting, Contrast Adjustment.
 3. **Model Architecture** – CNN built with PyTorch.
 4. **Training** 
-    – Epochs: 50
+    - Epochs: 50
     - Batch size: 256
     - Optimizer: Adam
     - Metric to evaluate: Accuracy 
