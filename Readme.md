@@ -25,6 +25,10 @@ It covers all stages — from data collection and preprocessing to model trainin
 ## 🧩 Project Structure
 
 ```project/
+
+├── .github/workflows/ # Automated process to deploy the app when app.py or CNN_architecture are uploaded.
+│ ├── deploy.yml
+
 ├── 00_ModelDevelpment/ # Create and Save the model
 │ ├── 00_TrainingData/ # Dataset for training and testing
 │ ├── 01_TestingDataFromInternet/ # Images to test if the model is working after training
@@ -36,9 +40,6 @@ It covers all stages — from data collection and preprocessing to model trainin
 │ ├── CNN_architecture.py # CNN architecture
 │ ├── Dockerfile 
 │ └── requirements.txt
-
-├── 02_Workflow/ # Automated process to deploy the app when app.py or CNN_architecture are uploaded.
-│ ├── Workflow.yml
 
 └── README.md
 ```
